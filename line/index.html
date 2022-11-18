@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Jarvis Desktop Online Services - JDOS</title>
+  </head>
+  <body>
+    <p>One moment, loading <b id="service">online services</b>
+  </body>
+  <script>
+    var service = new URLSearchParams(window.location.search).get('service');
+    function param(...q){
+      var parameters = {}
+      for(p in q){
+        var parame = new URLSearchParams(window.location.search).get(q[p]);
+        if(parame === undefined){
+          parameters[q[p]] = "";
+        }
+        else{
+          parameters[q[p]] = parame;
+        }
+      }
+      return parameters
+    }
+  </script>
+</html>
