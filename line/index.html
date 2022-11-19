@@ -4,9 +4,12 @@
   </head>
   <body>
     <p>One moment, loading <b id="service">online services</b>
-    <h1>Anserwer: <b id="ans"></b></h1>
+    <h1>Result: <b id="ans"></b></h1>
   </body>
   <script>
+    function log(q){
+      document.getElementById("ans").innerHTML = log;
+    }
     var service = new URLSearchParams(window.location.search).get('service');
     document.getElementById("service").innerHTML = service;
     function param(...q){
@@ -29,7 +32,13 @@
       var input = input.replaceAll("E","3");
       var input = input.replaceAll("O","0");
       var input = input.replaceAll("I","1");
-      document.getElementById("ans").innerHTML = input;
+      log(input)
+    }
+    else if(service == "save"){
+      var v = param(...["var","el"]).var;
+      var el = param(...["var","el"]).el;
+      localStorage.setItem(v, el)
+      log("Saved " + v + " as " + el + "!")
     }
   </script>
 </html>
