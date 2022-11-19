@@ -39,6 +39,16 @@
       var el = param(...["var","el"]).el;
       localStorage.setItem(v, el)
       log("Saved " + v + " as " + el + "!")
+      window.close()
+    }
+    else if(service == "get"){
+      var v = param(...["var"]).var;
+      log(localStorage[v])
+    }
+    else if(service == "clear"){
+      var v = param(...["var"]).var;
+      log(localStorage[v] = undefined;)
+      window.close()
     }
   </script>
 </html>
